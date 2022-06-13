@@ -189,7 +189,7 @@ def output_thingy(data_input, m):
     
     # st.write(data_input)
 
-    predictor = TabularPredictor.load('ag-model')
+    predictor = TabularPredictor.load('./ag-model')
 
     result = predictor.predict(data_input)
 
