@@ -1,10 +1,10 @@
 import streamlit as st
 import pandas as pd
 from autogluon.tabular import TabularPredictor
-import pathlib
-import platform
-plt =  platform.system()
-if plt == 'Windows': pathlib.PosixPath = pathlib.WindowsPath
+# import pathlib
+# import platform
+# plt =  platform.system()
+# if plt == 'Windows': pathlib.PosixPath = pathlib.WindowsPath
 
 import dclean as dclean
 
@@ -200,7 +200,7 @@ def output_thingy(data_input, m):
 
 if __name__ == '__main__':
     setup_page()
-    st.write(plt)
+    # st.write(plt)
     
     st.title('🔍 Thai IT Salary Predictor')
     st.subheader('โมเดลทำนายเงินเดือนอาชีพสาย IT ในประเทศไทย')
