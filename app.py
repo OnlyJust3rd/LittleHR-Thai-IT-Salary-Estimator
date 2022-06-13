@@ -12,6 +12,7 @@ def setup_page():
     st.set_page_config(
         page_title='Thai IT Salary Predictior',
         page_icon=':computer:',
+        layout='centered',
     )
     css = open('style.css','r')
     st.markdown(f'<style> {css.read()} </style>',unsafe_allow_html=True)
@@ -20,9 +21,8 @@ def setup_page():
     st.markdown(f'{font.read()}',unsafe_allow_html=True)
 
 def input_thingy():
-    st.header(' ')
     col1, col2 = st.columns(2)
-    
+        
     # Options ls
     if True:
         province_option = (
@@ -90,25 +90,21 @@ def input_thingy():
         '1,000 คนขึ้นไป แต่ไม่เกิน 10,000 คน (1,000 to 9,999 employees)',
         '10,000 คนขึ้นไป (10,000 or more employees)',
         )
-
     # EdLevel
     edlv = col1.selectbox(
-        '🏫วุฒิการศึกษาสุดท้าย',
-        index = 5,
-        options=edu_option,)
-
+    '🏫วุฒิการศึกษาสุดท้าย',
+    index = 5,
+    options=edu_option,)
     # WorkPlace
     workplace = col2.selectbox(
         '🏢จังหวัดที่ทำงาน/จังหวัดที่องค์กรอยู่',
         options=province_option)
-
     # YearsCodePro
     code_pro = col1.number_input(
         '🧰ประสบการณ์การทำงาน',
         min_value=0.0,
         max_value=50.0,
-        step=0.5)
-
+            step=0.5)
     # YearsCode
     code = col1.number_input(
         '🖥️ประสบการณ์การเขียนโปรแกรมหรือประสบการณ์ทำงานทั้งหมดเกี่ยวกับอาชีพที่ทำ(รวมตอนทำอาชีพด้วย)',
@@ -117,18 +113,15 @@ def input_thingy():
         step=0.5)
     # if code < code_pro:
     #     code += code_pro
-
     # DevType
     devtype_arr = col2.multiselect(
         '🖱️ตำแหน่งงาน',
         options=dev_options)
     devtype = ', '.join(devtype_arr)
-
     # OrgSize
     orgsize = col2.selectbox(
         '🏢ขนาดองค์กร',
         options=orgsize_options)
-
     # Employment
     employ = col2.radio(
         '⏰เวลางาน',
@@ -136,17 +129,16 @@ def input_thingy():
         horizontal=True)
 
     data_input = {
-        'WorkPlace': dclean.wplace(workplace),
-        'EdLevel': dclean.edu(edlv),
-        'YearsCodePro': code_pro,
-        'YearsCode': code,
-        'Employment': dclean.employ(employ),
-        'WorkPosition': dclean.wpos(devtype),
-        'DevType': devtype,
-        'OrgSize': dclean.orgsize(orgsize),
-    }
+            'WorkPlace': dclean.wplace(workplace),
+            'EdLevel': dclean.edu(edlv),
+            'YearsCodePro': code_pro,
+            'YearsCode': code,
+            'Employment': dclean.employ(employ),
+            'WorkPosition': dclean.wpos(devtype),
+            'DevType': devtype,
+            'OrgSize': dclean.orgsize(orgsize),
+        }
     data_input = pd.DataFrame(data=data_input, index=[0])
-
     return data_input
 
 def salary_display(salary):
@@ -206,16 +198,20 @@ if __name__ == '__main__':
 
     sidebar_thingy()
    
-    data_input = input_thingy()
+    st.header(' ')
+    with st.form('my_form'):
 
-    m = 1
-    if data_input.at[0,'Employment'] == 0:
-        m = 0.75
+        data_input = input_thingy()
+        
+        if st.form_submit_button('🔍 ทำนาย'):
+            m = 1
+            if data_input.at[0,'Employment'] == 0:
+                m = 0.75
+            
+            if data_input.at[0,'DevType'] != '':
+                with st.spinner('กำลังคิดอยู่ อย่าเร่งกันสิ...'):
+                    output_thingy(data_input, m)
+            else:
+                st.error('โปรดตอบคำถามให้ครบถ้วนก่อนเริ่มทำนาย')
 
-    if st.button('🔍 ทำนาย') :
-        if data_input.at[0,'DevType'] != '':
-            with st.spinner('กำลังคิดอยู่ อย่าเร่งกันสิ...'):
-                output_thingy(data_input, m)
-        else:
-            st.error('โปรดตอบคำถามให้ครบถ้วนก่อนเริ่มทำนาย')
     
