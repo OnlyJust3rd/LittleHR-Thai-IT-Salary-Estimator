@@ -193,7 +193,7 @@ def output_thingy(data_input, m):
 if __name__ == '__main__':
     setup_page()
     
-    st.title('🔍 Thai IT Salary Predictor')
+    st.title('🔍 Thai IT Job\'s Salary Predictor')
     st.subheader('โมเดลทำนายเงินเดือนอาชีพสาย IT ในประเทศไทย')
 
     sidebar_thingy()
