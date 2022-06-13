@@ -185,13 +185,13 @@ def sidebar_thingy():
         st.markdown('📧 <text>kantapong.vong@mail.kmutt.ac.th</text>', unsafe_allow_html=True)
 
 def output_thingy(data_input, m):
-    st.header('เงินเดือนของคุณคือ')
     
     # st.write(data_input)
 
-    predictor = TabularPredictor.load('./ag-model')
-
+    predictor = TabularPredictor.load('ag-model')
     result = predictor.predict(data_input)
+
+    st.header('เงินเดือนของคุณคือ')
 
     st.title(salary_display(result.values[0] * m * 1e4))
     st.write('อะไรนะ คุณกำลังคิดว่าโมเดลของเราทำนายไม่แม่นอยู่รึเปล่า?')
@@ -200,7 +200,6 @@ def output_thingy(data_input, m):
 
 if __name__ == '__main__':
     setup_page()
-    st.write(plt)
     
     st.title('🔍 Thai IT Salary Predictor')
     st.subheader('โมเดลทำนายเงินเดือนอาชีพสาย IT ในประเทศไทย')
