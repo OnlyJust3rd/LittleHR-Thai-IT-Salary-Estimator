@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 from autogluon.tabular import TabularPredictor
 import pathlib
-temp = pathlib.PosixPath
-pathlib.PosixPath = pathlib.WindowsPath
+import platform
+plt =  platform.system()
+if plt == 'Windows': pathlib.PosixPath = pathlib.WindowsPath
 
 import dclean as dclean
 
