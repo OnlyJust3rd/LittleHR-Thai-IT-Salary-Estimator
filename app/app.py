@@ -14,10 +14,10 @@ def setup_page():
         page_icon=':computer:',
         layout='centered',
     )
-    css = open('/app/style.css','r')
+    css = open('app/style.css','r')
     st.markdown(f'<style> {css.read()} </style>',unsafe_allow_html=True)
 
-    font = open('/app/font.txt','r')
+    font = open('app/font.txt','r')
     st.markdown(f'{font.read()}',unsafe_allow_html=True)
 
 def input_thingy():
@@ -184,8 +184,7 @@ def output_thingy(data_input, m):
     
     # st.write(data_input)
 
-    predictor = TabularPredictor.load('/app/ag-model')
-    predictor.set_model_best('LightGBMXT')
+    predictor = TabularPredictor.load('app/ag-model')
     result = predictor.predict(data_input)
 
     st.header('เงินเดือนของคุณคือ')
