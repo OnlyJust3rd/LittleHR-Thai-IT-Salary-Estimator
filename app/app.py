@@ -168,8 +168,8 @@ def sidebar_thingy():
     with st.sidebar:
         st.markdown('<bighead>🎉 ผู้สนับสนุนของเรา</bighead>', unsafe_allow_html=True)
         a,b,c = st.columns(3)
-        a.image('./img/logo-image.png', caption='AI Builders')
-        b.image('./img/danny.png', caption='กลุ่มหลังบ้านนายอาร์ม')
+        a.image('app/img/logo-image.png', caption='AI Builders')
+        b.image('app/img/danny.png', caption='กลุ่มหลังบ้านนายอาร์ม')
         st.markdown('<bighead>📜 About this project</bighead>', unsafe_allow_html=True)
         st.markdown('<text style=\'font-size:14px;\'>โปรเจคนี้เป็นโปรเจคส่วนตัวที่ผ่านการสนับสนุนจากโครงการ <a href="https://www.facebook.com/aibuildersx">AI Builders</a> พัฒนาขึ้นเพื่อประเมินเงินเดือนของอาชีพสาย IT ตามข้อมูลตำแหน่งงานและประสบการณ์ของพนักงาน โดยใช้ Tree-based Machine Learning Regression Model ที่เทรนด้วยข้อมูลจากการทำแบบสอบถามผู้ประกอบอาชีพสาย IT ผ่าน Social Media ในปีพ.ศ.2565</text>',unsafe_allow_html=True)
 
