@@ -124,7 +124,7 @@ def input_thingy():
         options=orgsize_options)
     # Employment
     employ = col2.radio(
-        '⏰เวลางาน',
+        '⏰ประเภทงานจ้างแบบ',
         options=['Full-time','Part-time','Freelance'],
         horizontal=True)
 
@@ -134,7 +134,6 @@ def input_thingy():
             'YearsCodePro': code_pro,
             'YearsCode': code,
             'Employment': dclean.employ(employ),
-            'WorkPosition': dclean.wpos(devtype),
             'DevType': devtype,
             'OrgSize': dclean.orgsize(orgsize),
         }
@@ -184,7 +183,7 @@ def output_thingy(data_input, m):
     
     # st.write(data_input)
 
-    predictor = TabularPredictor.load('app/ag-model')
+    predictor = TabularPredictor.load('app/ag-models')
     result = predictor.predict(data_input)
 
     st.header('เงินเดือนของคุณคือ')
