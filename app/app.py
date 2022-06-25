@@ -10,7 +10,7 @@ import dclean as dclean
 
 def setup_page():
     st.set_page_config(
-        page_title='Thai IT Salary Predictior',
+        page_title='LittleHR, IT Salary Estimator',
         page_icon=':computer:',
         layout='centered',
     )
