@@ -8,6 +8,18 @@ fancy{
     align-self: center;
 }
 
+bigmadtitle{
+    font-size: 60px;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: bold;
+}
+
+notsobigtitle{
+    font-size: 30px;
+    font-family: 'Sarabun', sans-serif;
+    font-weight: bold;
+}
+
 .hello{
     background-color: rgb(66, 66, 66);
 }

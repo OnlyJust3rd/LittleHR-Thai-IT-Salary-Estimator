@@ -196,8 +196,16 @@ def output_thingy(data_input, m):
 if __name__ == '__main__':
     setup_page()
     
-    st.title('🔍LittleHR: Thai IT\'s Salary Estimator')
-    st.subheader('โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย')
+    # st.title('🔍LittleHR')
+    # st.subheader('Thai IT Job\'s Salary Estimator')
+    # st.subheader('โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย')
+
+    st.markdown(
+        """
+        <fancy>🔍LittleHR, Thai IT Job\'s Salary Estimator</fancy>
+        โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย
+        """
+        ,unsafe_allow_html=True)
 
     sidebar_thingy()
    
