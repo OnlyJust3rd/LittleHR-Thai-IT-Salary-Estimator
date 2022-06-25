@@ -195,15 +195,12 @@ def output_thingy(data_input, m):
 
 if __name__ == '__main__':
     setup_page()
-    
-    # st.title('🔍LittleHR')
-    # st.subheader('Thai IT Job\'s Salary Estimator')
-    # st.subheader('โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย')
 
     st.markdown(
         """
-        <fancy>🔍LittleHR, Thai IT Job\'s Salary Estimator</fancy>
-        โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย
+        <text style="font-size: 60px;font-family:'Sarabun', sans-serif;font-weight: bold;">🔍LittleHR</text>
+        <text style="font-size: 30px;font-family: 'Sarabun', sans-serif;font-weight: bold;">: Thai IT Job's Salary Estimator</text><br>
+        <text style="font-size: 30px;font-family: 'Sarabun', sans-serif;font-weight: bold;padding:0px 0px 0px 60px">โมเดลประเมินเงินเดือนอาชีพสาย IT ในประเทศไทย</text>
         """
         ,unsafe_allow_html=True)
 
